@@ -1,0 +1,55 @@
+#include <stdio.h> 
+
+int main()
+
+{
+
+	int a[3][2];
+	int i,j;
+	//printf("%d",a[5]);  //a[5]表示数组a的第六个元素，越界了 
+	//整型数组，不能一下子简单输出出来，必须用循环
+	printf("Input score:\n");
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 2; j++) 
+		{
+			scanf_s("%d", &a[i][j]);
+		}
+	}
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 2; j++)
+		{
+			printf("%3d", a[i][j]);
+		}
+		printf("\n");
+	}
+	int num,indexi=-1, indexj=-1;
+	printf("Input an integer: ");
+	scanf_s("%d", &num);
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 2; j++)
+		{
+			printf("%3d\n%3d\n", a[i][j], num);
+			if (a[i][j] == num)
+			{
+				indexi = i;
+				indexj = j;
+				 goto d;
+			}
+		}
+	
+	}
+	
+	d:printf("num is %d , indexi is %d,indexj is  %.d\n", num, indexi, indexj);
+	if (indexi  < 0) {
+		printf("%d isn't  in the array.\n", num);
+	}
+	else {
+		printf("%d is  in the array, it's i is %d,j is  %.d\n", num, indexi, indexj);
+	}
+	return 0;
+
+}
